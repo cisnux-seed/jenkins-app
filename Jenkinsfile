@@ -248,7 +248,7 @@ pipeline {
             steps {
                 echo '🔍 Running staging integration tests...'
                 script {
-                    sleep(time: 30, unit: 'SECONDS') // Wait for app to start
+                    //sleep(time: 30, unit: 'SECONDS') // Wait for app to start
                     
                     // Health check
                     //def healthStatus = sh(
