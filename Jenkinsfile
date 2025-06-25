@@ -107,7 +107,7 @@ pipeline {
         stage('🔨 Build Application') {
             steps {
                 echo '🔨 Building the application...'
-                sh 'mvn clean compile -B'
+                //sh 'mvn clean compile -B'
                 
                 script {
                     if (params.ENABLE_NOTIFICATIONS) {
