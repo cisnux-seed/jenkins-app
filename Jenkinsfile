@@ -107,7 +107,7 @@ pipeline {
         stage('🔨 Build Application') {
             steps {
                 echo '🔨 Building the application...'
-                //sh 'mvn clean compile -B'
+                sh 'mvn clean compile -B'
                 
                 script {
                     if (params.ENABLE_NOTIFICATIONS) {
@@ -161,7 +161,7 @@ pipeline {
                 stage('Code Quality') {
                     steps {
                         echo '📊 Running code quality analysis...'
-                        //sh 'mvn verify -B -DskipTests'
+                        sh 'mvn verify -B -DskipTests'
                         
                         script {
                             if (params.ENABLE_NOTIFICATIONS) {
