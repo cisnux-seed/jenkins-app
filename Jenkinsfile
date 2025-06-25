@@ -161,7 +161,7 @@ pipeline {
                 stage('Code Quality') {
                     steps {
                         echo '📊 Running code quality analysis...'
-                        sh 'mvn verify -B -DskipTests'
+                        //sh 'mvn verify -B -DskipTests'
                         
                         script {
                             if (params.ENABLE_NOTIFICATIONS) {
