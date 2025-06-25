@@ -1,0 +1,11 @@
+# Override file for local development
+services:
+  jenkins:
+    # Additional environment variables
+    environment:
+      - JENKINS_OPTS=--httpPort=8080
+      - JENKINS_SLAVE_AGENT_PORT=50000
+    
+    # Mount init scripts for auto-configuration
+    volumes:
+      - ./jenkins-config/init.groovy.d:/usr/share/jenkins/ref/init.groovy.d 

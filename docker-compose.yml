@@ -1,0 +1,49 @@
+# Docker Compose file for Jenkins CI/CD Demo
+
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile.jenkins
+    container_name: jenkins-demo
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./jenkins-data:/var/jenkins_home/backup
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+      - JENKINS_ADMIN_ID=admin
+      - JENKINS_ADMIN_PASSWORD=admin123
+    networks:
+      - jenkins-network
+    privileged: true
+    user: root
+
+  # Sample Spring Boot application container for deployment
+  spring-app:
+    image: openjdk:11-jre-slim
+    container_name: spring-boot-app
+    ports:
+      - "8090:8080"
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: ["java", "-jar", "app.jar"]
+    networks:
+      - jenkins-network
+    depends_on:
+      - jenkins
+    profiles:
+      - production
+
+volumes:
+  jenkins_home:
+    driver: local
+
+networks:
+  jenkins-network:
+    driver: bridge 

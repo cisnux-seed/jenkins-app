@@ -1,0 +1,30 @@
+# Jenkins data
+jenkins-data/
+jenkins_home/
+
+# Maven
+sample-spring-app/target/
+sample-spring-app/.mvn/
+sample-spring-app/mvnw
+sample-spring-app/mvnw.cmd
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker
+.docker/
+
+# Backup files
+*.bak
+*.tmp 
