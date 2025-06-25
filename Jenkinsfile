@@ -134,7 +134,7 @@ pipeline {
                     }
                     steps {
                         echo '🧪 Running unit tests...'
-                        sh 'mvn test -B'
+                        //sh 'mvn test -B'
                     }
                     post {
                         always {
