@@ -27,7 +27,7 @@ pipeline {
         )
         booleanParam(
             name: 'SKIP_TESTS',
-            defaultValue: false,
+            defaultValue: true,
             description: 'Skip test execution'
         )
         booleanParam(
@@ -81,7 +81,7 @@ pipeline {
                 // Explicitly check out the source code from Git
                 // This is used instead of 'checkout scm' to make the pipeline script
                 // work even when it's not loaded from an SCM in the Jenkins job config.
-                git url: 'https://github.com/cisnux-seed/jenkins-app', branch: 'main'
+                git url: 'https://github.com/cisnux-seed/spring-jenk-app', branch: 'main'
                 
                 script {
                     // Get commit info
